@@ -1,0 +1,5 @@
+name: Vips
+version: 1.0.0
+main: com.github.merelysnow.vips.VipsPlugin
+depend:
+  - LuckPerms

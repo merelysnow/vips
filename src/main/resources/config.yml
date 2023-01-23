@@ -1,0 +1,9 @@
+database:
+  type: sqlite
+  mysql:
+    address: 178.255.219.105:3306
+    username: u2275_KeBL2QKEWr
+    password: mnjQHGFFKq.LsUBbqe@HNnF!
+    database: s2275_factions
+  sqlite:
+    file: vips.sql
