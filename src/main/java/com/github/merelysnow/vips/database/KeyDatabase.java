@@ -1,7 +1,7 @@
 package com.github.merelysnow.vips.database;
 
 import com.github.merelysnow.vips.database.connection.RepositoryProvider;
-import com.github.merelysnow.vips.model.Key;
+import com.github.merelysnow.vips.data.Key;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

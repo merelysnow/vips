@@ -2,7 +2,7 @@ package com.github.merelysnow.vips.commands.key;
 
 import com.github.merelysnow.vips.VipsPlugin;
 import com.github.merelysnow.vips.hook.LuckPermsHook;
-import com.github.merelysnow.vips.model.Key;
+import com.github.merelysnow.vips.data.Key;
 import com.google.common.collect.Lists;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;

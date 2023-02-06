@@ -1,8 +1,9 @@
 package com.github.merelysnow.vips.commands.key;
 
 import com.github.merelysnow.vips.VipsPlugin;
+import com.github.merelysnow.vips.data.Reward;
 import com.github.merelysnow.vips.hook.LuckPermsHook;
-import com.github.merelysnow.vips.model.Key;
+import com.github.merelysnow.vips.data.Key;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
 import me.saiintbrisson.minecraft.command.target.CommandTarget;
@@ -37,8 +38,8 @@ public class UseKeyCommand {
         UserManager userManager = hook.getUserManager();
         User user = hook.getPlayerAdapter(player);
 
-        for(InheritanceNode inheritanceNode : user.getNodes(NodeType.INHERITANCE)) {
-            if(inheritanceNode.getGroupName().equals(key.getGroup())) {
+        for (InheritanceNode inheritanceNode : user.getNodes(NodeType.INHERITANCE)) {
+            if (inheritanceNode.getGroupName().equals(key.getGroup())) {
                 player.sendMessage("§cVocê já possui esse vip.");
                 return;
             }
@@ -53,7 +54,15 @@ public class UseKeyCommand {
             user.setPrimaryGroup(key.getGroup());
         }
 
-        String prefix = group.getCachedData().getMetaData().getPrefix().replace("&","§");
+        Reward reward = VipsPlugin.getInstance().getRewardController().get(key.getGroup());
+
+        if(reward != null) {
+            for(String cmd : reward.getCommands()) {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd.replace("{player}", player.getName()));
+            }
+        }
+
+        String prefix = group.getCachedData().getMetaData().getPrefix().replace("&", "§");
 
         userManager.saveUser(user);
         userManager.cleanupUser(user);

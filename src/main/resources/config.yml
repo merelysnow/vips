@@ -7,3 +7,19 @@ database:
     database: s2275_factions
   sqlite:
     file: vips.sql
+
+Rewards:
+  feather:
+    comandos:
+      - 'darbau {player}'
+      - 'darbau {player}'
+      - 'darbau {player}'
+
+  mvp:
+    comandos:
+      - 'darbau {player}'
+      - 'darbau {player}'
+
+  pro:
+    comandos:
+      - 'darbau {player}'

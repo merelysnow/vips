@@ -1,7 +1,7 @@
 package com.github.merelysnow.vips.commands.key;
 
 import com.github.merelysnow.vips.VipsPlugin;
-import com.github.merelysnow.vips.model.Key;
+import com.github.merelysnow.vips.data.Key;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
 import me.saiintbrisson.minecraft.command.target.CommandTarget;

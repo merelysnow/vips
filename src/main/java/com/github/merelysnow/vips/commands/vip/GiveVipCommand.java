@@ -1,5 +1,6 @@
 package com.github.merelysnow.vips.commands.vip;
 
+import com.github.merelysnow.vips.data.Reward;
 import com.google.common.collect.Lists;
 import com.github.merelysnow.vips.VipsPlugin;
 import com.github.merelysnow.vips.hook.LuckPermsHook;
@@ -77,6 +78,14 @@ public class GiveVipCommand {
             onlinePlayer.sendTitle(prefix.substring(0, 2) + target.getName(),
                     "§ftornou-se " + prefix);
             onlinePlayer.playSound(onlinePlayer.getLocation(), Sound.AMBIENCE_THUNDER, 3.0F, 6.0F);
+        }
+
+        Reward reward = VipsPlugin.getInstance().getRewardController().get(groupName);
+
+        if (reward != null) {
+            for (String cmd : reward.getCommands()) {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd.replace("{player}", target.getName()));
+            }
         }
 
         context.sendMessage("§aGrupo adicionado com sucesso!");

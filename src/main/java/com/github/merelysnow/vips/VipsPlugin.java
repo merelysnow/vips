@@ -6,6 +6,7 @@ import com.github.merelysnow.vips.commands.vip.VipTimeCommand;
 import com.github.merelysnow.vips.controller.KeysController;
 import com.github.merelysnow.vips.commands.key.CreateKeyCommand;
 import com.github.merelysnow.vips.commands.key.DeleteKeyCommand;
+import com.github.merelysnow.vips.controller.RewardController;
 import com.github.merelysnow.vips.database.KeyDatabase;
 import com.github.merelysnow.vips.hook.LuckPermsHook;
 import lombok.Getter;
@@ -17,10 +18,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 @Getter
 public final class VipsPlugin extends JavaPlugin {
 
-    @Getter
     private LuckPermsHook luckPermsHook;
-    @Getter private KeyDatabase keyDatabase;
-    @Getter private KeysController keysController;
+    private KeyDatabase keyDatabase;
+    private KeysController keysController;
+    private RewardController rewardController;
 
     @Override
     public void onEnable() {
@@ -28,11 +29,13 @@ public final class VipsPlugin extends JavaPlugin {
 
         keyDatabase = new KeyDatabase(this);
         keysController = new KeysController(getKeyDatabase());
+        rewardController = new RewardController(getConfig());
 
         keyDatabase.selectMany()
                 .forEach(key -> {
                     keysController.registerKey(key);
                 });
+        rewardController.loadRewards();
         registerObjects();
 
         getLuckPermsHook().init();

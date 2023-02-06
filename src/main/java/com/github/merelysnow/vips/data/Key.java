@@ -1,4 +1,4 @@
-package com.github.merelysnow.vips.model;
+package com.github.merelysnow.vips.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

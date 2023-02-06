@@ -1,7 +1,7 @@
 package com.github.merelysnow.vips.controller;
 
 import com.github.merelysnow.vips.database.KeyDatabase;
-import com.github.merelysnow.vips.model.Key;
+import com.github.merelysnow.vips.data.Key;
 import lombok.RequiredArgsConstructor;
 
 import java.util.HashMap;
